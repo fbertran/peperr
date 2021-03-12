@@ -1,0 +1,42 @@
+import(snowfall, survival)
+export(peperr, 
+       perr, 
+       pmpec, 
+       extract.fun, 
+       resample.indices, 
+       ipec,  
+#complexity.ipec.CoxBoost, 
+#complexity.ripec.CoxBoost, 
+#complexity.mincv.CoxBoost, 
+complexity.LASSO, 
+#fit.CoxBoost, 
+fit.coxph, 
+fit.LASSO, 
+PLL, 
+#PLL.CoxBoost, 
+#PLL.coxph, 
+predictProb, 
+#predictProb.CoxBoost, 
+predictProb.survfit, 
+predictProb.coxph, 
+aggregation.misclass, 
+aggregation.brier, 
+aggregation.pmpec)
+S3method(print,peperr)
+S3method(summary,peperr)
+S3method(plot,peperr)
+
+importFrom("graphics", "boxplot", "hist", "legend", "lines", "plot",
+           "points")
+importFrom("stats", "binomial", "glm", "predict", "quantile",
+           "smooth.spline")
+importFrom("utils", "getFromNamespace")
+
+#S3method(PLL, CoxBoost)
+S3method(PLL, coxph)
+#S3method(predictProb, CoxBoost)
+S3method(predictProb, coxph)
+S3method(predictProb, survfit)
+
+useDynLib(peperr, .registration = TRUE, .fixes = "C_")
+useDynLib(peperr,C_noinf)
