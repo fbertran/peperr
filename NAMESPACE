@@ -1,4 +1,5 @@
 import(snowfall, survival)
+importFrom("methods", "is")
 export(peperr, 
        perr, 
        pmpec, 

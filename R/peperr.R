@@ -303,7 +303,7 @@ km.apparent=km.apparent)
    }
    Stop <- FALSE
    for(i in 1:length(sample.error.list)){
-      if (class(sample.error.list[[i]])=="try-error"){ 
+      if (is(sample.error.list[[i]],"try-error")){ 
          if (i != sample.n){
             cat("Error in run", i, ":", sample.error.list[[i]], "\n")
          } else {

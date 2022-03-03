@@ -3,7 +3,7 @@ Type: Package
 Date: 2022-03-03
 Title: Parallelised Estimation of Prediction Error
 Version: 1.4
-Depends: snowfall, survival
+Depends: snowfall, survival, methods
 Suggests: locfit, penalized, codetools
 Author: Christine Porzelius, Harald Binder
 Maintainer: Frederic Bertrand <frederic.bertrand@utt.fr>
