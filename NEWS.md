@@ -1,3 +1,7 @@
+# peperr 1.4
+
+* Code update.
+
 # peperr 1.3
 
 * Added github actions, pkgdown site, readme.Rmd and package logo.

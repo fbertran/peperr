@@ -1,8 +1,8 @@
 Package: peperr
 Type: Package
-Date: 2021-03-15
+Date: 2022-03-03
 Title: Parallelised Estimation of Prediction Error
-Version: 1.3
+Version: 1.4
 Depends: snowfall, survival
 Suggests: locfit, penalized, codetools
 Author: Christine Porzelius, Harald Binder
