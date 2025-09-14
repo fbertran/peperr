@@ -1,5 +1,5 @@
 //
-// 2021-02-26. Author F. Bertrand <fbertran@math.unistra.fr>
+// 2021-02-26. Author F. Bertrand <frederic.bertrand@lecnam.net>
 // Copyright (c) Universite de technologie de Troyes
 //
   

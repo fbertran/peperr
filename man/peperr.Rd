@@ -132,17 +132,17 @@ Porzelius, C., Binder, H., Schumacher, M. (2008) Parallelised prediction error e
 \seealso{\code{\link{perr}}, \code{\link{resample.indices}}, \code{\link{extract.fun}}}
 
 \examples{
-# Generate survival data with 10 informative covariates 
-\dontrun{
+# Generate survival data with 10 informative covariates
 n <- 200
 p <- 100
 beta <- c(rep(1,10),rep(0,p-10))
 x <- matrix(rnorm(n*p),n,p)
-real.time <- -(log(runif(n)))/(10*exp(drop(x %*% beta)))
+real.time <- -(log(runif(n)))/(10*exp(drop(x \%*\% beta)))
 cens.time <- rexp(n,rate=1/10)
 status <- ifelse(real.time <= cens.time,1,0)
 time <- ifelse(real.time <= cens.time,real.time,cens.time)
 
+\dontrun{
 # A: R runs sequential or R is started on commandline with desired options 
 # (for example using sfCluster: sfCluster -i --cpus=5)
 # Example A1:

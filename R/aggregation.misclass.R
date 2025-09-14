@@ -3,10 +3,10 @@ aggregation.misclass <- function (full.data = NULL, response, x, model, cplx = N
 {
     data <- as.data.frame(x)
     data$response <- response
-    if (class(model)[1] == "penfit") {
+    if (is(model[1],"penfit")) {
         probs <- predict(model, data = data, penalized = x, ...)
     }  else {
-        if(class(model)[1] == "glm") {
+        if(is(model[1],"glm")) {
             probs <- predict(model, newdata = data, penalized = x, , type = "response", ...)
         } else {
         probs <- predict(model, data = data, type = "response",

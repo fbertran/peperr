@@ -67,7 +67,7 @@ pmpec <- function(object, response=NULL, x=NULL, times, model.args=NULL, type=c(
         #                     as.vector(t(status.mat)[,rep(1:nrow(data),rep(nrow(data),nrow(data)))]) - as.vector(t(probmat)))^2
         #                     ,ncol=length(times),byrow=TRUE),2,mean))
         
-        res <- .C("C_noinf",
+        res <- .C(`C_noinf`,
                   as.double(as.vector(weightmat)),
                   as.integer(as.vector(status.mat)),
                   as.double(as.vector(probmat)),

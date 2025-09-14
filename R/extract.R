@@ -13,7 +13,7 @@ function(fun)
    allfuns <- codetools::findGlobals(fun, merge=FALSE)$functions
    for (i in 1:length(allfuns)){
    name <- try(get(as.character(allfuns[i])), silent=TRUE)
-     if(!class(name)=="try-error"){ 
+     if(!is(name,"try-error")){ 
         packagename <- environmentName(environment(name))
         if (packagename=="R_GlobalEnv"){
            function.list <- c(function.list, allfuns[i])
@@ -49,7 +49,7 @@ function(fun)
 #               function.list <- c(function.list, extract.list$functions)
 #            } else {
 #                name <- try(get(as.character(body.fun[[i]])), silent=TRUE)
-#                if(!class(name)=="try-error"){ 
+#                if(!is(name,"try-error")){ 
 #                   packagename <- environmentName(environment(name))
 # 		  if (packagename=="R_GlobalEnv"){
 # 		     function.list <- c(function.list, as.character(body.fun[[i]]))

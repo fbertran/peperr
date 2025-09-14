@@ -15,7 +15,7 @@ fit.coxph,
 fit.LASSO, 
 PLL, 
 #PLL.CoxBoost, 
-#PLL.coxph, 
+PLL.coxph, 
 predictProb, 
 #predictProb.CoxBoost, 
 predictProb.survfit, 
@@ -39,5 +39,5 @@ S3method(PLL, coxph)
 S3method(predictProb, coxph)
 S3method(predictProb, survfit)
 
-useDynLib(peperr, .registration = TRUE, .fixes = "C_")
-useDynLib(peperr,C_noinf)
+useDynLib(peperr, .registration = TRUE, .fixes = "")
+

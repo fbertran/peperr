@@ -1,3 +1,14 @@
+# peperr 1.6
+
+* Maintainer email update
+* Added unit tests
+* Fix package to get rid of CRAN check notes
+* Add package doi
+
+# peperr 1.5
+
+* Code update to fix CRAN issues.
+
 # peperr 1.4
 
 * Code update.

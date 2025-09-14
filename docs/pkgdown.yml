@@ -1,6 +1,8 @@
-pandoc: 2.11.2
-pkgdown: 1.6.1
+pandoc: '3.4'
+pkgdown: 2.1.3
 pkgdown_sha: ~
 articles: {}
-last_built: 2022-03-03T14:57Z
-
+last_built: 2025-09-14T21:22Z
+urls:
+  reference: https://fbertran.github.io/peperr/reference
+  article: https://fbertran.github.io/peperr/articles

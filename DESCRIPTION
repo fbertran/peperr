@@ -1,21 +1,32 @@
 Package: peperr
 Type: Package
-Date: 2022-03-03
+Date: 2025-09-15
 Title: Parallelised Estimation of Prediction Error
-Version: 1.4
+Version: 1.6
 Depends: snowfall, survival, methods
-Suggests: locfit, penalized, codetools
-Author: Christine Porzelius, Harald Binder
-Maintainer: Frederic Bertrand <frederic.bertrand@utt.fr>
+Suggests: glmnet, locfit, penalized, codetools, testthat (>= 3.0.0)
+Authors@R: c(person(given = "Christine",
+                        family = "Porzelius",
+                        role = "aut"),
+                 person(given = "Harald",
+                        family = "Binder",
+                        role = "aut"),
+                 person(given = "Frederic",
+                        family = "Bertrand",
+                        role = "cre",
+                        email = "frederic.bertrand@lecnam.net"))
+Author: Christine Porzelius [aut], Harald Binder [aut], Frederic Bertrand [cre]
+Maintainer: Frederic Bertrand <frederic.bertrand@lecnam.net>
 Description: Designed for prediction error estimation
         through resampling techniques, possibly accelerated by parallel
         execution on a compute cluster. Newly developed model fitting
         routines can be easily incorporated. Methods used in the package are detailed in
         Porzelius Ch., Binder H. and Schumacher M. (2009) <doi:10.1093/bioinformatics/btp062>
         and were used, for instance, in
-        Porzelius Ch., Schumacher M.and  Binder H. (2011) <doi:10.1007/s00180-011-0236-6>.
+        Porzelius Ch., Schumacher M. and Binder H. (2011) <doi:10.1007/s00180-011-0236-6>.
 License: GPL (>= 2)
 NeedsCompilation: yes
 RoxygenNote: 7.1.1
 URL: https://github.com/fbertran/peperr/, https://fbertran.github.io/peperr/
 BugReports: https://github.com/fbertran/peperr/issues/
+Config/testthat/edition: 3
