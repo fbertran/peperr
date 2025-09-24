@@ -41,3 +41,4 @@ man/figures/Cairo-fa-pepper-hot.pdf
 ^\.github$
 
 
+\.DS_Store$
