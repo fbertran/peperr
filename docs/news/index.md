@@ -4,6 +4,8 @@
 
 - Restore the suggestion of the package CoxBoost and the corresponding
   functions that were removed, as this package is again on the CRAN.
+- New public wrappers for penalized, glmnet, grpreg, SGL, ncvreg,
+  randomForestSRC, and mboost
 
 ## peperr 1.6
 

@@ -18,7 +18,7 @@ PLL(object, newdata, newtime, newstatus, ...)
 The predictive partial log-likelihood measures the prediction performance of each model fitted in a boostrap sample, using the data not in this sample. Multiplying by (-2) leads to a deviance-like measure, which means that small values indicate good prediction performance.
 
 \code{peperr} requires function \code{PLL.class} in case of survival response, for each model fit of class \code{class}.
-Available methods include \code{PLL.CoxBoost} and \code{PLL.coxph}.
+Available methods include \code{PLL.CoxBoost}, \code{PLL.coxph}, \code{PLL.penfit}, \code{PLL.coxnet}, \code{PLL.grpsurv}, \code{PLL.ncvsurv}, \code{PLL.mboost_coxph}, and \code{PLL.SGL_cox}.
 }
 \value{
 Numeric predictive partial log-likelihood returned by the method implementation.

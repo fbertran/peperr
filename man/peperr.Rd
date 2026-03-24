@@ -42,7 +42,7 @@ If another cluster solution (specified by argument \code{clustertype}) shall be 
 \item{trace}{logical. If TRUE, output about the current execution step is printed (if running parallel: printed on nodes, that means not visible in master R process, see Details).}
 \item{debug}{if TRUE, information concerning export of variables is given.}
 \item{peperr.lib.loc}{location of package \pkg{peperr} if not in standard library search path (\code{.libPaths()}), to be specified for loading \pkg{peperr} onto the cluster nodes.}
-\item{RNG}{type of RNG. \code{"fixed"} requires a specified \code{seed}. \code{"RNGstream"} and \code{"SPRNG"} use default seeds, if not specified. See Details.}
+\item{RNG}{type of RNG. \code{"fixed"} requires a specified \code{seed}. \code{"RNGstream"} uses its default seed if not specified. \code{"SPRNG"} is retained only for backward compatibility and now triggers an error explaining that it is no longer supported. See Details.}
 \item{seed}{seed to allow reproducibility of results. Only considered if argument \code{RNG} is not \code{"none"}. See Details.}
 \item{lb}{if TRUE and a compute cluster is used, computation of slaves is executed load balanced. See Details.}
 \item{sr}{if TRUE, intermediate results are saved. If execution is interrupted, they can be restored by setting argument sr.restore to TRUE. See documentation of package \pkg{snowfall} for details}
@@ -57,10 +57,10 @@ Resampling based prediction error estimation requires for each split in training
 Functions for fitting the model, determination of model complexity, if required by the fitting procedure, and aggregating the prediction error are passed as arguments \code{fit.fun}, \code{complexity} and \code{aggregation.fun}. Already available functions are 
 
 for model fit:
-\code{fit.CoxBoost}, \code{fit.coxph}, \code{fit.LASSO}
+\code{fit.CoxBoost}, \code{fit.coxph}, \code{fit.penalized}, \code{fit.LASSO}, \code{fit.fusedLASSO}, \code{fit.glmnet}, \code{fit.grpsurv}, \code{fit.ncvsurv}, \code{fit.rfsrc}, \code{fit.mboost.coxph}, \code{fit.SGL.cox}
 
 to determine complexity:
-\code{complexity.mincv.CoxBoost}, \code{complexity.ipec.CoxBoost}, \code{complexity.ripec.CoxBoost}, \code{complexity.LASSO}
+\code{complexity.mincv.CoxBoost}, \code{complexity.ipec.CoxBoost}, \code{complexity.ripec.CoxBoost}, \code{complexity.cv.penalized}, \code{complexity.LASSO}, \code{complexity.fusedLASSO}, \code{complexity.cv.glmnet}, \code{complexity.cv.grpsurv}, \code{complexity.cv.ncvsurv}, \code{complexity.oob.rfsrc}, \code{complexity.cvrisk.mboost}, \code{complexity.cvSGL.cox}
 
 to aggregate prediction error:
 \code{aggregation.pmpec}, \code{aggregation.brier}, \code{aggregation.misclass}
@@ -95,7 +95,8 @@ If not running in sequential mode, a specified number of R processes called node
 
 Note that a \code{set.seed} call before calling function \code{peperr} is not sufficient to allow reproducibility of results when running in parallel mode, as the slave R processes are not affected as they are own R instances. \code{peperr} provides two possibilities to make results reproducible: 
 \itemize{
-\item Use \code{RNG="RNGstream"} or \code{RNG="SPRNG"}. Independent parallel random number streams are initialized on the cluster nodes, using function \code{sfClusterSetupRNG} of package \pkg{snowfall}. This requires package \pkg{rlecuyer} for \code{"RNGstream"} and package \pkg{rsprng} for \code{"SPRNG"}. A seed can be specified using argument \code{seed}, else the default values are taken. A \code{set.seed} call on the master is required additionally and argument \code{lb=FALSE}, see below.
+\item Use \code{RNG="RNGstream"} for independent parallel random number streams initialized on the cluster nodes via \code{sfClusterSetupRNG} from package \pkg{snowfall}. This requires package \pkg{rlecuyer}. A seed can be specified using argument \code{seed}, else the default values are taken. A \code{set.seed} call on the master is required additionally and argument \code{lb=FALSE}, see below.
+\item \code{RNG="SPRNG"} is kept as a recognized legacy value so existing code fails with an informative message, but it is no longer supported because \pkg{rsprng} has been removed from CRAN.
 \item If \code{RNG="fixed"}, a seed has to be specified. This can be either an integer or a vector of length number of samples +2.  In the second case, the first entry is used for the main R process, the next number of samples ones for each sample run (in parallel execution mode on slave R processes) and the last one for computation on full sample (as well on slave R process in parallel execution mode). Passing integer x is equivalent to passing vector \code{x+(0:(number of samples+1))}. This procedure allows reproducibility in any case, i.e. also if the number of parallel processes changes as well as in sequential execution.
 } 
 

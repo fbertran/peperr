@@ -11,9 +11,10 @@ function(response, x,
    RNG=c("RNGstream", "SPRNG", "fixed", "none"), seed=NULL, 
    lb=FALSE, sr=FALSE, sr.name="default", sr.restore=FALSE)
 {
+  survival.response <- .peperr_is_survival_response(response)
   binary <- FALSE
    if(is.null(aggregation.fun)){
-      if(is.Surv(response)){
+      if(survival.response){
          aggregation.fun <- aggregation.pmpec
       } else {
          if (is.vector(response)&& length(unique(response))<3){
@@ -52,10 +53,11 @@ function(response, x,
                call. = FALSE
             )
          }
-         if (RNG == "SPRNG" && !requireNamespace("rsprng", quietly = TRUE)) {
+         if (RNG == "SPRNG") {
             stop(
-               "RNG='SPRNG' requires the 'rsprng' package. ",
-               "Install it or use RNG='fixed' or RNG='none'.",
+               "RNG='SPRNG' is no longer supported because the 'rsprng' package ",
+               "has been removed from CRAN. Use RNG='RNGstream', RNG='fixed', ",
+               "or RNG='none' instead.",
                call. = FALSE
             )
          }
@@ -97,7 +99,7 @@ function(response, x,
 
    null.model <- NULL
    actual.data <- as.data.frame(x)
-   if (is.Surv(response)){
+   if (survival.response){
       #xnames <- names(actual.data) 
       time <- response[,"time"]
       status <- response[, "status"]
@@ -119,7 +121,7 @@ function(response, x,
    attr(null.model, "addattr") <- attributes(null.model)$addattr
    fullsample.attr <- attr(null.model, "addattr")
 
-   if (is.Surv(response)){
+   if (survival.response){
    km.pred <- summary(object=km.fit, times=fullsample.attr)$surv 
    km.weight <- -1*diff(km.pred)
    }
@@ -159,7 +161,7 @@ function(response, x,
       if (trace && actual.sample<sample.n){
          cat("Sample run", actual.sample, "of", (sample.n-1), "\n")
       }
-      if (!is.Surv(response)&&!is.matrix(response)){
+      if (!survival.response && !is.matrix(response)){
          response <- matrix(response, ncol=1)
       }
       if (is.function(complexity)){
@@ -172,7 +174,7 @@ function(response, x,
          } else sample.complexity <- 0
       }
 
-      if (is.Surv(response)){
+      if (survival.response){
          lipec.oob <- c()
          lipec.oob.null <- c()
          pll.oob <- c()
@@ -197,7 +199,7 @@ function(response, x,
                args.aggregation))
             actual.error <- rbind(actual.error, actual.error.i)
  
-            if (is.Surv(response)){
+            if (survival.response){
                km.fit <- survival::survfit(Surv(time, status)~1,
                   data=actual.data[unique(sample.index.full[[actual.sample]]),])
                km.apparent <- do.call("aggregation.fun", c(list(full.data=actual.data, type="apparent", 
@@ -208,7 +210,7 @@ function(response, x,
                lipec.oob.null <- rbind(lipec.oob.null, lipec.oob.null.i)
                lipec.oob.i <- sum(actual.error.i[1:(length(km.weight))]*km.weight, na.rm=TRUE)
                lipec.oob <- rbind(lipec.oob, lipec.oob.i)
-               if (exists(paste("PLL.", class(sample.fit), sep=""))){
+               if (.peperr_has_PLL_method(sample.fit)){
 # 		   pll.oob.null.i <- PLL(object=km.fit, newdata=x[not.in.sample.full[[actual.sample]],, drop=FALSE],
 #                      newtime=time[not.in.sample.full[[actual.sample]]], 
 #                      newstatus=status[not.in.sample.full[[actual.sample]]], complexity=list.sample.complexity)
@@ -246,10 +248,9 @@ function(response, x,
                       args.aggregation))
                    actual.error <- rbind(actual.error, actual.error.i)
 
-                   if (is.Surv(response)){
+                   if (survival.response){
                      km.fit <- survival::survfit(Surv(time, status)~1,
                         data=actual.data[sample.index.full[[actual.sample]],])
-cat("Kaplan-Meier, step", actual.sample)
                      km.apparent <- do.call("aggregation.fun", c(list(full.data=actual.data, type="apparent", 
                         response=response[unique(not.in.sample.full[[actual.sample]]),],
                         x=x[unique(not.in.sample.full[[actual.sample]]),, drop=FALSE], model=km.fit,
@@ -258,7 +259,7 @@ cat("Kaplan-Meier, step", actual.sample)
                      lipec.oob.null <- rbind(lipec.oob.null, lipec.oob.null.i)
                      lipec.oob.i <- sum(actual.error.i[1:(length(km.weight))]*km.weight, na.rm=TRUE)
                      lipec.oob <- rbind(lipec.oob, lipec.oob.i)
-                     if (exists(paste("PLL.", class(sample.fit), sep=""))){
+                     if (.peperr_has_PLL_method(sample.fit)){
 #  			 pll.oob.null.i <- PLL(object=km.fit, newdata=x[not.in.sample.full[[actual.sample]],, drop=FALSE],
 #                      newtime=time[not.in.sample.full[[actual.sample]]], 
 #                      newstatus=status[not.in.sample.full[[actual.sample]]], complexity=list.sample.complexity)
@@ -285,7 +286,7 @@ cat("Kaplan-Meier, step", actual.sample)
       
       if (actual.sample<sample.n) sample.fit.list <- NULL
 
-      if (is.Surv(response)){
+      if (survival.response){
          dimnames(lipec.oob) <- NULL
          dimnames(lipec.oob.null) <- NULL
          dimnames(pll.oob) <- NULL
@@ -331,7 +332,7 @@ km.apparent=km.apparent)
    sample.error.full <- lapply(sample.error.list, function(arg) arg$actual.error)
    sample.complexity.full <- unlist(lapply(sample.error.list, function(arg) arg$sample.complexity))
    sample.fit.full <- lapply(sample.error.list, function(arg) arg$sample.fit)
-   if (is.Surv(response)){
+   if (survival.response){
    sample.lipec.full <- lapply(sample.error.list, function(arg) arg$lipec.oob)
    sample.lipec.null.full <- lapply(sample.error.list, function(arg) arg$lipec.oob.null)
    sample.pll.full <- lapply(sample.error.list, function(arg) arg$pll.oob)
@@ -397,7 +398,7 @@ km.apparent=km.apparent)
    sample.complexity <- unique(sample.complexity)
    }
   
-   if (is.Surv(response)){
+   if (survival.response){
    output <- list(indices=list(sample.index=sample.index, not.in.sample=not.in.sample),
       selected.complexity=cplx, complexity=complexity, 
       response=response, full.model.fit=sample.fit.full[[sample.n]],
@@ -431,4 +432,3 @@ km.apparent=km.apparent)
    class(output) <- "peperr"
    output
 }
-

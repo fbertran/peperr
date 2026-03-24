@@ -42,7 +42,8 @@ performance.
 
 `peperr` requires function `PLL.class` in case of survival response, for
 each model fit of class `class`. Available methods include
-`PLL.CoxBoost` and `PLL.coxph`.
+`PLL.CoxBoost`, `PLL.coxph`, `PLL.penfit`, `PLL.coxnet`, `PLL.grpsurv`,
+`PLL.ncvsurv`, `PLL.mboost_coxph`, and `PLL.SGL_cox`.
 
 ## Value
 

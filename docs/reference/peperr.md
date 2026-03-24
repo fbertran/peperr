@@ -168,8 +168,10 @@ peperr(response, x,
 
 - RNG:
 
-  type of RNG. `"fixed"` requires a specified `seed`. `"RNGstream"` and
-  `"SPRNG"` use default seeds, if not specified. See Details.
+  type of RNG. `"fixed"` requires a specified `seed`. `"RNGstream"` uses
+  its default seed if not specified. `"SPRNG"` is retained only for
+  backward compatibility and now triggers an error explaining that it is
+  no longer supported. See Details.
 
 - seed:
 
@@ -216,11 +218,16 @@ required by the fitting procedure, and aggregating the prediction error
 are passed as arguments `fit.fun`, `complexity` and `aggregation.fun`.
 Already available functions are
 
-for model fit: `fit.CoxBoost`, `fit.coxph`, `fit.LASSO`
+for model fit: `fit.CoxBoost`, `fit.coxph`, `fit.penalized`,
+`fit.LASSO`, `fit.fusedLASSO`, `fit.glmnet`, `fit.grpsurv`,
+`fit.ncvsurv`, `fit.rfsrc`, `fit.mboost.coxph`, `fit.SGL.cox`
 
 to determine complexity: `complexity.mincv.CoxBoost`,
 `complexity.ipec.CoxBoost`, `complexity.ripec.CoxBoost`,
-`complexity.LASSO`
+`complexity.cv.penalized`, `complexity.LASSO`, `complexity.fusedLASSO`,
+`complexity.cv.glmnet`, `complexity.cv.grpsurv`,
+`complexity.cv.ncvsurv`, `complexity.oob.rfsrc`,
+`complexity.cvrisk.mboost`, `complexity.cvSGL.cox`
 
 to aggregate prediction error: `aggregation.pmpec`, `aggregation.brier`,
 `aggregation.misclass`
@@ -324,12 +331,16 @@ mode, as the slave R processes are not affected as they are own R
 instances. `peperr` provides two possibilities to make results
 reproducible:
 
-- Use `RNG="RNGstream"` or `RNG="SPRNG"`. Independent parallel random
-  number streams are initialized on the cluster nodes, using function
-  `sfClusterSetupRNG` of package snowfall. A seed can be specified using
-  argument `seed`, else the default values are taken. A `set.seed` call
-  on the master is required additionally and argument `lb=FALSE`, see
-  below.
+- Use `RNG="RNGstream"` for independent parallel random number streams
+  initialized on the cluster nodes via `sfClusterSetupRNG` from package
+  snowfall. This requires package rlecuyer. A seed can be specified
+  using argument `seed`, else the default values are taken. A `set.seed`
+  call on the master is required additionally and argument `lb=FALSE`,
+  see below.
+
+- `RNG="SPRNG"` is kept as a recognized legacy value so existing code
+  fails with an informative message, but it is no longer supported
+  because rsprng has been removed from CRAN.
 
 - If `RNG="fixed"`, a seed has to be specified. This can be either an
   integer or a vector of length number of samples +2. In the second

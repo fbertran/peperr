@@ -42,14 +42,23 @@ devtools::install_github("fbertran/peperr")
   Generic function for extracting the predictive partial log-likelihood
 - [`PLL(`*`<coxph>`*`)`](https://fbertran.github.io/peperr/reference/PLL.coxph.md)
   : Predictive partial log-likelihood for Cox poportional hazards model
+- [`PLL(`*`<penfit>`*`)`](https://fbertran.github.io/peperr/reference/PLL.penfit.md)
+  : Predictive partial log-likelihood for penalized Cox models
+- [`fit.SGL.cox()`](https://fbertran.github.io/peperr/reference/SGL-backend.md)
+  [`complexity.cvSGL.cox()`](https://fbertran.github.io/peperr/reference/SGL-backend.md)
+  [`predictProb(`*`<SGL_cox>`*`)`](https://fbertran.github.io/peperr/reference/SGL-backend.md)
+  [`PLL(`*`<SGL_cox>`*`)`](https://fbertran.github.io/peperr/reference/SGL-backend.md)
+  : Sparse-group-lasso Cox backend
 - [`aggregation.brier()`](https://fbertran.github.io/peperr/reference/aggregation.brier.md)
   : Determine the Brier score for a fitted model
 - [`aggregation.misclass()`](https://fbertran.github.io/peperr/reference/aggregation.misclass.md)
   : Determine the missclassification rate for a fitted model
 - [`aggregation.pmpec()`](https://fbertran.github.io/peperr/reference/aggregation.pmpec.md)
   : Determine the prediction error curve for a fitted model
-- [`complexity.LASSO()`](https://fbertran.github.io/peperr/reference/complexity.LASSO.md)
-  : Interface for selection of optimal parameter for lasso fit
+- [`complexity.cv.penalized()`](https://fbertran.github.io/peperr/reference/complexity.LASSO.md)
+  [`complexity.LASSO()`](https://fbertran.github.io/peperr/reference/complexity.LASSO.md)
+  [`complexity.fusedLASSO()`](https://fbertran.github.io/peperr/reference/complexity.LASSO.md)
+  : Complexity selection helpers for penalized backends
 - [`complexity.ipec.CoxBoost()`](https://fbertran.github.io/peperr/reference/complexity.ipec.CoxBoost.md)
   [`complexity.ripec.CoxBoost()`](https://fbertran.github.io/peperr/reference/complexity.ipec.CoxBoost.md)
   : Interface function for CoxBoost complexity selection via integrated
@@ -62,13 +71,34 @@ devtools::install_github("fbertran/peperr")
   a compute cluster
 - [`fit.CoxBoost()`](https://fbertran.github.io/peperr/reference/fit.CoxBoost.md)
   : Interface function for fitting a CoxBoost model
-- [`fit.LASSO()`](https://fbertran.github.io/peperr/reference/fit.LASSO.md)
-  : Interface function for fitting a generalised linear model with the
-  lasso
+- [`fit.penalized()`](https://fbertran.github.io/peperr/reference/fit.LASSO.md)
+  [`fit.LASSO()`](https://fbertran.github.io/peperr/reference/fit.LASSO.md)
+  [`fit.fusedLASSO()`](https://fbertran.github.io/peperr/reference/fit.LASSO.md)
+  : Penalized backend fitting wrappers
 - [`fit.coxph()`](https://fbertran.github.io/peperr/reference/fit.coxph.md)
   : Interface function for fitting a Cox proportional hazards model
+- [`fit.glmnet()`](https://fbertran.github.io/peperr/reference/glmnet-backend.md)
+  [`complexity.cv.glmnet()`](https://fbertran.github.io/peperr/reference/glmnet-backend.md)
+  [`predictProb(`*`<coxnet>`*`)`](https://fbertran.github.io/peperr/reference/glmnet-backend.md)
+  [`PLL(`*`<coxnet>`*`)`](https://fbertran.github.io/peperr/reference/glmnet-backend.md)
+  : glmnet Cox backend
+- [`fit.grpsurv()`](https://fbertran.github.io/peperr/reference/grpreg-backend.md)
+  [`complexity.cv.grpsurv()`](https://fbertran.github.io/peperr/reference/grpreg-backend.md)
+  [`predictProb(`*`<grpsurv>`*`)`](https://fbertran.github.io/peperr/reference/grpreg-backend.md)
+  [`PLL(`*`<grpsurv>`*`)`](https://fbertran.github.io/peperr/reference/grpreg-backend.md)
+  : grpreg grouped Cox backend
 - [`ipec()`](https://fbertran.github.io/peperr/reference/ipec.md) :
   Integrated prediction error curve
+- [`fit.mboost.coxph()`](https://fbertran.github.io/peperr/reference/mboost-backend.md)
+  [`complexity.cvrisk.mboost()`](https://fbertran.github.io/peperr/reference/mboost-backend.md)
+  [`predictProb(`*`<mboost_coxph>`*`)`](https://fbertran.github.io/peperr/reference/mboost-backend.md)
+  [`PLL(`*`<mboost_coxph>`*`)`](https://fbertran.github.io/peperr/reference/mboost-backend.md)
+  : mboost Cox backend
+- [`fit.ncvsurv()`](https://fbertran.github.io/peperr/reference/ncvreg-backend.md)
+  [`complexity.cv.ncvsurv()`](https://fbertran.github.io/peperr/reference/ncvreg-backend.md)
+  [`predictProb(`*`<ncvsurv>`*`)`](https://fbertran.github.io/peperr/reference/ncvreg-backend.md)
+  [`PLL(`*`<ncvsurv>`*`)`](https://fbertran.github.io/peperr/reference/ncvreg-backend.md)
+  : ncvreg survival backend
 - [`peperr()`](https://fbertran.github.io/peperr/reference/peperr.md) :
   Parallelised Estimation of Prediction Error
 - [`perr()`](https://fbertran.github.io/peperr/reference/perr.md) :
@@ -83,8 +113,14 @@ devtools::install_github("fbertran/peperr")
   : Generic function for extracting predicted survival probabilities
 - [`predictProb(`*`<coxph>`*`)`](https://fbertran.github.io/peperr/reference/predictProb.coxph.md)
   : Extract predicted survival probabilities from a coxph object
+- [`predictProb(`*`<penfit>`*`)`](https://fbertran.github.io/peperr/reference/predictProb.penfit.md)
+  : Predicted survival probabilities for penalized Cox models
 - [`predictProb(`*`<survfit>`*`)`](https://fbertran.github.io/peperr/reference/predictProb.survfit.md)
   : Extract predicted survival probabilities from a survfit object
+- [`fit.rfsrc()`](https://fbertran.github.io/peperr/reference/randomForestSRC-backend.md)
+  [`complexity.oob.rfsrc()`](https://fbertran.github.io/peperr/reference/randomForestSRC-backend.md)
+  [`predictProb(`*`<rfsrc>`*`)`](https://fbertran.github.io/peperr/reference/randomForestSRC-backend.md)
+  : randomForestSRC survival backend
 - [`resample.indices()`](https://fbertran.github.io/peperr/reference/resample.indices.md)
   : Generation of indices for resampling Procedure
 

@@ -1,3 +1,7 @@
 predictProb.survfit <- function (object, response, x, times, train.data=NULL, ...){
-   km.pred <- matrix(summary(object, times=times)$surv, nrow(x), length(times),byrow=TRUE)  
+   .peperr_survfit_to_matrix(
+      survfit_object = object,
+      times = times,
+      nobs = nrow(x)
+   )
 }

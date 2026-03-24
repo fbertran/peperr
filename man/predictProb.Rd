@@ -16,7 +16,7 @@ predictProb(object, response, x, ...)
 \details{
 \code{pmpec} requires a \code{predictProb.class} function for each model fit of class \code{class}. It extracts the predicted probability of survival from this model.
 
-See existing \code{predictProb} functions, at the time \code{predictProb.CoxBoost}, \code{predictProb.coxph} and \code{predictProb.survfit}. 
+See existing \code{predictProb} functions, at the time \code{predictProb.CoxBoost}, \code{predictProb.coxph}, \code{predictProb.survfit}, \code{predictProb.penfit}, \code{predictProb.coxnet}, \code{predictProb.grpsurv}, \code{predictProb.ncvsurv}, \code{predictProb.rfsrc}, \code{predictProb.mboost_coxph}, and \code{predictProb.SGL_cox}. 
 
 If desired \code{predictProb} function for class \code{class} is not available in \pkg{peperr}, but implemented in package \pkg{pec} as \code{predictSurvProb.class}, it can easily be transformed as \code{predictProb} method.
 }

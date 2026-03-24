@@ -57,3 +57,25 @@ test_that("peperr gives a clear error when RNGstream support is unavailable", {
     "requires the 'rlecuyer' package"
   )
 })
+
+test_that("peperr gives a clear error when legacy SPRNG support is requested", {
+  x <- matrix(rnorm(30), nrow = 10)
+  time <- rexp(10)
+  status <- sample(c(0L, 1L), size = 10, replace = TRUE)
+
+  expect_error(
+    suppressWarnings(
+      peperr(
+        response = Surv(time, status),
+        x = x,
+        fit.fun = peperr:::fit.coxph,
+        indices = resample.indices(n = 10, method = "cv", sample.n = 2),
+        parallel = NULL,
+        noclusterstart = TRUE,
+        noclusterstop = TRUE,
+        RNG = "SPRNG"
+      )
+    ),
+    "no longer supported"
+  )
+})

@@ -63,6 +63,20 @@
 
         <dt>
 
+          <code><a href="PLL.penfit.html">PLL(<i>&lt;penfit&gt;</i>)</a></code>
+
+        </dt>
+        <dd>Predictive partial log-likelihood for penalized Cox models</dd>
+
+        <dt>
+
+          <code><a href="SGL-backend.html">fit.SGL.cox()</a></code> <code><a href="SGL-backend.html">complexity.cvSGL.cox()</a></code> <code><a href="SGL-backend.html">predictProb(<i>&lt;SGL_cox&gt;</i>)</a></code> <code><a href="SGL-backend.html">PLL(<i>&lt;SGL_cox&gt;</i>)</a></code>
+
+        </dt>
+        <dd>Sparse-group-lasso Cox backend</dd>
+
+        <dt>
+
           <code><a href="aggregation.brier.html">aggregation.brier()</a></code>
 
         </dt>
@@ -84,10 +98,10 @@
 
         <dt>
 
-          <code><a href="complexity.LASSO.html">complexity.LASSO()</a></code>
+          <code><a href="complexity.LASSO.html">complexity.cv.penalized()</a></code> <code><a href="complexity.LASSO.html">complexity.LASSO()</a></code> <code><a href="complexity.LASSO.html">complexity.fusedLASSO()</a></code>
 
         </dt>
-        <dd>Interface for selection of optimal parameter for lasso fit</dd>
+        <dd>Complexity selection helpers for penalized backends</dd>
 
         <dt>
 
@@ -119,10 +133,10 @@
 
         <dt>
 
-          <code><a href="fit.LASSO.html">fit.LASSO()</a></code>
+          <code><a href="fit.LASSO.html">fit.penalized()</a></code> <code><a href="fit.LASSO.html">fit.LASSO()</a></code> <code><a href="fit.LASSO.html">fit.fusedLASSO()</a></code>
 
         </dt>
-        <dd>Interface function for fitting a generalised linear model with the lasso</dd>
+        <dd>Penalized backend fitting wrappers</dd>
 
         <dt>
 
@@ -133,10 +147,38 @@
 
         <dt>
 
+          <code><a href="glmnet-backend.html">fit.glmnet()</a></code> <code><a href="glmnet-backend.html">complexity.cv.glmnet()</a></code> <code><a href="glmnet-backend.html">predictProb(<i>&lt;coxnet&gt;</i>)</a></code> <code><a href="glmnet-backend.html">PLL(<i>&lt;coxnet&gt;</i>)</a></code>
+
+        </dt>
+        <dd>glmnet Cox backend</dd>
+
+        <dt>
+
+          <code><a href="grpreg-backend.html">fit.grpsurv()</a></code> <code><a href="grpreg-backend.html">complexity.cv.grpsurv()</a></code> <code><a href="grpreg-backend.html">predictProb(<i>&lt;grpsurv&gt;</i>)</a></code> <code><a href="grpreg-backend.html">PLL(<i>&lt;grpsurv&gt;</i>)</a></code>
+
+        </dt>
+        <dd>grpreg grouped Cox backend</dd>
+
+        <dt>
+
           <code><a href="ipec.html">ipec()</a></code>
 
         </dt>
         <dd>Integrated prediction error curve</dd>
+
+        <dt>
+
+          <code><a href="mboost-backend.html">fit.mboost.coxph()</a></code> <code><a href="mboost-backend.html">complexity.cvrisk.mboost()</a></code> <code><a href="mboost-backend.html">predictProb(<i>&lt;mboost_coxph&gt;</i>)</a></code> <code><a href="mboost-backend.html">PLL(<i>&lt;mboost_coxph&gt;</i>)</a></code>
+
+        </dt>
+        <dd>mboost Cox backend</dd>
+
+        <dt>
+
+          <code><a href="ncvreg-backend.html">fit.ncvsurv()</a></code> <code><a href="ncvreg-backend.html">complexity.cv.ncvsurv()</a></code> <code><a href="ncvreg-backend.html">predictProb(<i>&lt;ncvsurv&gt;</i>)</a></code> <code><a href="ncvreg-backend.html">PLL(<i>&lt;ncvsurv&gt;</i>)</a></code>
+
+        </dt>
+        <dd>ncvreg survival backend</dd>
 
         <dt>
 
@@ -189,10 +231,24 @@
 
         <dt>
 
+          <code><a href="predictProb.penfit.html">predictProb(<i>&lt;penfit&gt;</i>)</a></code>
+
+        </dt>
+        <dd>Predicted survival probabilities for penalized Cox models</dd>
+
+        <dt>
+
           <code><a href="predictProb.survfit.html">predictProb(<i>&lt;survfit&gt;</i>)</a></code>
 
         </dt>
         <dd>Extract predicted survival probabilities from a survfit object</dd>
+
+        <dt>
+
+          <code><a href="randomForestSRC-backend.html">fit.rfsrc()</a></code> <code><a href="randomForestSRC-backend.html">complexity.oob.rfsrc()</a></code> <code><a href="randomForestSRC-backend.html">predictProb(<i>&lt;rfsrc&gt;</i>)</a></code>
+
+        </dt>
+        <dd>randomForestSRC survival backend</dd>
 
         <dt>
 

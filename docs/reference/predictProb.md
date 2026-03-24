@@ -42,7 +42,10 @@ class `class`. It extracts the predicted probability of survival from
 this model.
 
 See existing `predictProb` functions, at the time
-`predictProb.CoxBoost`, `predictProb.coxph` and `predictProb.survfit`.
+`predictProb.CoxBoost`, `predictProb.coxph`, `predictProb.survfit`,
+`predictProb.penfit`, `predictProb.coxnet`, `predictProb.grpsurv`,
+`predictProb.ncvsurv`, `predictProb.rfsrc`, `predictProb.mboost_coxph`,
+and `predictProb.SGL_cox`.
 
 If desired `predictProb` function for class `class` is not available in
 peperr, but implemented in package pec as `predictSurvProb.class`, it

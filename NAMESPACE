@@ -6,20 +6,49 @@ export(peperr,
        extract.fun, 
        resample.indices, 
        ipec,  
+       complexity.cv.glmnet,
+       complexity.cv.grpsurv,
+       complexity.cv.ncvsurv,
+       complexity.cv.penalized,
+       complexity.cvSGL.cox,
+       complexity.cvrisk.mboost,
        complexity.ipec.CoxBoost, 
        complexity.ripec.CoxBoost, 
        complexity.mincv.CoxBoost, 
        complexity.LASSO, 
+       complexity.fusedLASSO,
+       complexity.oob.rfsrc,
        fit.CoxBoost, 
+       fit.fusedLASSO,
+       fit.glmnet,
+       fit.grpsurv,
+       fit.mboost.coxph,
+       fit.ncvsurv,
+       fit.penalized,
+       fit.rfsrc,
+       fit.SGL.cox,
        fit.coxph, 
        fit.LASSO, 
        PLL, 
        PLL.CoxBoost, 
+       PLL.coxnet,
        PLL.coxph, 
+       PLL.grpsurv,
+       PLL.mboost_coxph,
+       PLL.ncvsurv,
+       PLL.penfit,
+       PLL.SGL_cox,
        predictProb, 
        predictProb.CoxBoost, 
+       predictProb.coxnet,
        predictProb.survfit, 
        predictProb.coxph, 
+       predictProb.grpsurv,
+       predictProb.mboost_coxph,
+       predictProb.ncvsurv,
+       predictProb.penfit,
+       predictProb.rfsrc,
+       predictProb.SGL_cox,
        aggregation.misclass, 
        aggregation.brier, 
        aggregation.pmpec)
@@ -34,9 +63,22 @@ importFrom("stats", "binomial", "glm", "predict", "quantile",
 importFrom("utils", "getFromNamespace")
 
 S3method(PLL, CoxBoost)
+S3method(PLL, coxnet)
 S3method(PLL, coxph)
+S3method(PLL, grpsurv)
+S3method(PLL, mboost_coxph)
+S3method(PLL, ncvsurv)
+S3method(PLL, penfit)
+S3method(PLL, SGL_cox)
 S3method(predictProb, CoxBoost)
+S3method(predictProb, coxnet)
 S3method(predictProb, coxph)
+S3method(predictProb, grpsurv)
+S3method(predictProb, mboost_coxph)
+S3method(predictProb, ncvsurv)
+S3method(predictProb, penfit)
+S3method(predictProb, rfsrc)
+S3method(predictProb, SGL_cox)
 S3method(predictProb, survfit)
 
 useDynLib(peperr, .registration = TRUE, .fixes = "")

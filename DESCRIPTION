@@ -4,8 +4,9 @@ Date: 2026-03-24
 Title: Parallelised Estimation of Prediction Error
 Version: 1.7
 Depends: snowfall, survival, methods
-Suggests: CoxBoost, glmnet, locfit, penalized, rlecuyer, rsprng,
-        codetools, testthat (>= 3.0.0)
+Suggests: CoxBoost, glmnet, grpreg, locfit, mboost, ncvreg, penalized,
+        randomForestSRC, rlecuyer, SGL, codetools,
+        testthat (>= 3.0.0)
 Authors@R: c(person(given = "Christine",
                         family = "Porzelius",
                         role = "aut"),
