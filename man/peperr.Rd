@@ -57,10 +57,10 @@ Resampling based prediction error estimation requires for each split in training
 Functions for fitting the model, determination of model complexity, if required by the fitting procedure, and aggregating the prediction error are passed as arguments \code{fit.fun}, \code{complexity} and \code{aggregation.fun}. Already available functions are 
 
 for model fit:
-\code{fit.CoxBoost}, \code{fit.coxph}, \code{fit.LASSO}, \code{fit.rsf_mtry}
+\code{fit.CoxBoost}, \code{fit.coxph}, \code{fit.LASSO}
 
 to determine complexity:
-\code{complexity.mincv.CoxBoost}, \code{complexity.ipec.CoxBoost}, \code{complexity.LASSO}, \code{complexity.ipec.rsf_mtry}
+\code{complexity.mincv.CoxBoost}, \code{complexity.ipec.CoxBoost}, \code{complexity.ripec.CoxBoost}, \code{complexity.LASSO}
 
 to aggregate prediction error:
 \code{aggregation.pmpec}, \code{aggregation.brier}, \code{aggregation.misclass}

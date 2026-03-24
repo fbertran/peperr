@@ -19,6 +19,7 @@
 [![CRAN status](https://www.r-pkg.org/badges/version/peperr)](https://CRAN.R-project.org/package=peperr)
 [![CRAN RStudio mirror downloads](https://cranlogs.r-pkg.org/badges/peperr)](https://cran.r-project.org/package=peperr)
 [![GitHub Repo stars](https://img.shields.io/github/stars/fbertran/peperr?style=social)](https://github.com/fbertran/peperr)
+[![R-CMD-check](https://github.com/fbertran/peperr/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/fbertran/peperr/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
 `peperr` is designed for prediction error estimation through resampling techniques, possibly accelerated by parallel execution on a compute cluster. Newly developed model fitting routines can be easily incorporated. Methods used in the package are detailed in Porzelius Ch., Binder H. and Schumacher M. (2009) [10.1093/bioinformatics/btp062](https://doi.org/10.1093/bioinformatics/btp062) and were used, for instance, in Porzelius Ch., Schumacher M.and  Binder H. (2011) [10.1007/s00180-011-0236-6](https://doi.org/10.1007/s00180-011-0236-6).

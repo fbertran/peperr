@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">peperr</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.6</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.7</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -146,9 +146,9 @@ If another cluster solution (specified by argument <code>clustertype</code>) sha
 <p>Resampling based prediction error estimation requires for each split in training and test data the following steps: a) selection of model complexity (if desired), using the training data set, b) fitting the model with the selected (or a given) complexity on the training set and c) measurement of prediction error on the corresponding test set.</p>
 <p>Functions for fitting the model, determination of model complexity, if required by the fitting procedure, and aggregating the prediction error are passed as arguments <code>fit.fun</code>, <code>complexity</code> and <code>aggregation.fun</code>. Already available functions are</p>
 <p>for model fit:
-<code>fit.CoxBoost</code>, <code>fit.coxph</code>, <code>fit.LASSO</code>, <code>fit.rsf_mtry</code></p>
+<code>fit.CoxBoost</code>, <code>fit.coxph</code>, <code>fit.LASSO</code></p>
 <p>to determine complexity:
-<code>complexity.mincv.CoxBoost</code>, <code>complexity.ipec.CoxBoost</code>, <code>complexity.LASSO</code>, <code>complexity.ipec.rsf_mtry</code></p>
+<code>complexity.mincv.CoxBoost</code>, <code>complexity.ipec.CoxBoost</code>, <code>complexity.ripec.CoxBoost</code>, <code>complexity.LASSO</code></p>
 <p>to aggregate prediction error:
 <code>aggregation.pmpec</code>, <code>aggregation.brier</code>, <code>aggregation.misclass</code></p>
 <p>Function <code>peperr</code> is especially designed for evaluation of newly developed model fitting routines. For that, own routines can be passed as arguments to the <code>peperr</code> call. They are incorporated as follows (also compare existing functions, as named above):</p>
@@ -321,7 +321,7 @@ If another cluster solution (specified by argument <code>clustertype</code>) sha
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.3.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.0.</p>
 </div>
 
     </footer></div>

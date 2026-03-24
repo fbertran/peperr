@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">peperr</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.6</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.7</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -64,11 +64,11 @@
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
     <p>The predictive partial log-likelihood measures the prediction performance of each model fitted in a boostrap sample, using the data not in this sample. Multiplying by (-2) leads to a deviance-like measure, which means that small values indicate good prediction performance.</p>
 <p><code>peperr</code> requires function <code>PLL.class</code> in case of survival response, for each model fit of class <code>class</code>.
-At the time, <code>PLL.CoxBoost</code> is available.</p>
+Available methods include <code>PLL.CoxBoost</code> and <code>PLL.coxph</code>.</p>
     </div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
-    <p>Vector of length <code>n_new</code></p>
+    <p>Numeric predictive partial log-likelihood returned by the method implementation.</p>
     </div>
 
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
@@ -80,7 +80,7 @@ At the time, <code>PLL.CoxBoost</code> is available.</p>
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.3.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.0.</p>
 </div>
 
     </footer></div>

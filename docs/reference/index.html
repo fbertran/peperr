@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">peperr</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.6</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.7</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -35,115 +35,166 @@
 
 
 
-
-    </div><div class="section level2">
+      <dl></dl></div><div class="section level2">
 
 
 
 
       <dl><dt>
 
+          <code><a href="PLL.CoxBoost.html">PLL(<i>&lt;CoxBoost&gt;</i>)</a></code>
+
+        </dt>
+        <dd>Predictive partial log-likelihood for a CoxBoost model fit</dd>
+
+        <dt>
+
           <code><a href="PLL.html">PLL()</a></code>
 
         </dt>
         <dd>Generic function for extracting the predictive partial log-likelihood</dd>
-      </dl><dl><dt>
+
+        <dt>
 
           <code><a href="PLL.coxph.html">PLL(<i>&lt;coxph&gt;</i>)</a></code>
 
         </dt>
         <dd>Predictive partial log-likelihood for Cox poportional hazards model</dd>
-      </dl><dl><dt>
+
+        <dt>
 
           <code><a href="aggregation.brier.html">aggregation.brier()</a></code>
 
         </dt>
         <dd>Determine the Brier score for a fitted model</dd>
-      </dl><dl><dt>
+
+        <dt>
 
           <code><a href="aggregation.misclass.html">aggregation.misclass()</a></code>
 
         </dt>
         <dd>Determine the missclassification rate for a fitted model</dd>
-      </dl><dl><dt>
+
+        <dt>
 
           <code><a href="aggregation.pmpec.html">aggregation.pmpec()</a></code>
 
         </dt>
         <dd>Determine the prediction error curve for a fitted model</dd>
-      </dl><dl><dt>
+
+        <dt>
 
           <code><a href="complexity.LASSO.html">complexity.LASSO()</a></code>
 
         </dt>
         <dd>Interface for selection of optimal parameter for lasso fit</dd>
-      </dl><dl><dt>
+
+        <dt>
+
+          <code><a href="complexity.ipec.CoxBoost.html">complexity.ipec.CoxBoost()</a></code> <code><a href="complexity.ipec.CoxBoost.html">complexity.ripec.CoxBoost()</a></code>
+
+        </dt>
+        <dd>Interface function for CoxBoost complexity selection via integrated prediction error curves</dd>
+
+        <dt>
+
+          <code><a href="complexity.mincv.CoxBoost.html">complexity.mincv.CoxBoost()</a></code>
+
+        </dt>
+        <dd>Interface for CoxBoost selection of the optimal number of boosting steps via cross-validation</dd>
+
+        <dt>
 
           <code><a href="extract.fun.html">extract.fun()</a></code>
 
         </dt>
         <dd>Extract functions, libraries and global variables to be loaded onto a compute cluster</dd>
-      </dl><dl><dt>
+
+        <dt>
+
+          <code><a href="fit.CoxBoost.html">fit.CoxBoost()</a></code>
+
+        </dt>
+        <dd>Interface function for fitting a CoxBoost model</dd>
+
+        <dt>
 
           <code><a href="fit.LASSO.html">fit.LASSO()</a></code>
 
         </dt>
         <dd>Interface function for fitting a generalised linear model with the lasso</dd>
-      </dl><dl><dt>
+
+        <dt>
 
           <code><a href="fit.coxph.html">fit.coxph()</a></code>
 
         </dt>
         <dd>Interface function for fitting a Cox proportional hazards model</dd>
-      </dl><dl><dt>
+
+        <dt>
 
           <code><a href="ipec.html">ipec()</a></code>
 
         </dt>
         <dd>Integrated prediction error curve</dd>
-      </dl><dl><dt>
+
+        <dt>
 
           <code><a href="peperr.html">peperr()</a></code>
 
         </dt>
         <dd>Parallelised Estimation of Prediction Error</dd>
-      </dl><dl><dt>
+
+        <dt>
 
           <code><a href="perr.html">perr()</a></code>
 
         </dt>
         <dd>Prediction error estimates</dd>
-      </dl><dl><dt>
+
+        <dt>
 
           <code><a href="plot.peperr.html">plot(<i>&lt;peperr&gt;</i>)</a></code>
 
         </dt>
         <dd>Plot method for peperr object</dd>
-      </dl><dl><dt>
+
+        <dt>
 
           <code><a href="pmpec.html">pmpec()</a></code>
 
         </dt>
         <dd>Calculate prediction error curves</dd>
-      </dl><dl><dt>
+
+        <dt>
+
+          <code><a href="predictProb.CoxBoost.html">predictProb(<i>&lt;CoxBoost&gt;</i>)</a></code>
+
+        </dt>
+        <dd>Extract predicted survival probabilities from a CoxBoost fit</dd>
+
+        <dt>
 
           <code><a href="predictProb.html">predictProb()</a></code>
 
         </dt>
         <dd>Generic function for extracting predicted survival probabilities</dd>
-      </dl><dl><dt>
+
+        <dt>
 
           <code><a href="predictProb.coxph.html">predictProb(<i>&lt;coxph&gt;</i>)</a></code>
 
         </dt>
         <dd>Extract predicted survival probabilities from a coxph object</dd>
-      </dl><dl><dt>
+
+        <dt>
 
           <code><a href="predictProb.survfit.html">predictProb(<i>&lt;survfit&gt;</i>)</a></code>
 
         </dt>
         <dd>Extract predicted survival probabilities from a survfit object</dd>
-      </dl><dl><dt>
+
+        <dt>
 
           <code><a href="resample.indices.html">resample.indices()</a></code>
 
@@ -158,7 +209,7 @@
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.3.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.0.</p>
 </div>
 
     </footer></div>

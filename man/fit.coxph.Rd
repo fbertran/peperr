@@ -14,7 +14,7 @@ fit.coxph(response, x, cplx, ...)
   \item{\dots}{additional arguments passed to \code{coxph} call.}
 }
 \value{
-CoxBoost object
+coxph object
 }
 \details{
 Function is basically a wrapper around \code{coxph} of package \pkg{survival}. 

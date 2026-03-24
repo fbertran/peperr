@@ -1,3 +1,7 @@
+# peperr 1.7
+
+* Restore the suggestion of the package CoxBoost and the corresponding functions that were removed, as this package is again on the CRAN.
+
 # peperr 1.6
 
 * Maintainer email update
