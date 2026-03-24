@@ -13,7 +13,8 @@ test_that("peperr runs on a tiny synthetic classification task", {
   res <- suppressWarnings(peperr(response=Surv(time, status), x=x, 
                            fit.fun=peperr:::fit.coxph, complexity=c(50, 75), 
                            indices=resample.indices(n=length(time), method="sub632", sample.n=10),
-                           parallel=TRUE, clustertype="SOCK", cpus=3))
+                           parallel=FALSE,
+                           RNG="none"))
   # Basic structure checks commonly returned by resampling procedures
   expect_true(is.list(res))
   # If error rates are present, they should be numeric and in [0,1]
@@ -31,4 +32,28 @@ test_that("peperr runs on a tiny synthetic classification task", {
 
 test_that("no documented datasets detected (placeholder)", {
   skip("No \\docType{data} topics detected in man/.")
+})
+
+test_that("peperr gives a clear error when RNGstream support is unavailable", {
+  if (requireNamespace("rlecuyer", quietly = TRUE)) {
+    skip("rlecuyer is installed")
+  }
+
+  x <- matrix(rnorm(30), nrow = 10)
+  time <- rexp(10)
+  status <- sample(c(0L, 1L), size = 10, replace = TRUE)
+
+  expect_error(
+    peperr(
+      response = Surv(time, status),
+      x = x,
+      fit.fun = peperr:::fit.coxph,
+      indices = resample.indices(n = 10, method = "cv", sample.n = 2),
+      parallel = NULL,
+      noclusterstart = TRUE,
+      noclusterstop = TRUE,
+      RNG = "RNGstream"
+    ),
+    "requires the 'rlecuyer' package"
+  )
 })

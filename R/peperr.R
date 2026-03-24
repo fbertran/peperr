@@ -45,6 +45,20 @@ function(response, x,
    }
    if (RNG!="none"){
       if (RNG!="fixed"){
+         if (RNG == "RNGstream" && !requireNamespace("rlecuyer", quietly = TRUE)) {
+            stop(
+               "RNG='RNGstream' requires the 'rlecuyer' package. ",
+               "Install it or use RNG='fixed' or RNG='none'.",
+               call. = FALSE
+            )
+         }
+         if (RNG == "SPRNG" && !requireNamespace("rsprng", quietly = TRUE)) {
+            stop(
+               "RNG='SPRNG' requires the 'rsprng' package. ",
+               "Install it or use RNG='fixed' or RNG='none'.",
+               call. = FALSE
+            )
+         }
          if (!is.null(seed)){
             sfClusterSetupRNG(type=RNG, seed=seed)
          } else {
@@ -417,5 +431,4 @@ km.apparent=km.apparent)
    class(output) <- "peperr"
    output
 }
-
 
